@@ -14,28 +14,29 @@ This project is a web service for writing restaurant reviews, similar to Tabelog
 ## Getting Started
 
 1. Clone the repository:
+2. SSH 공개키 인증 후 
    ```bash
-   git clone https://github.com/your-repo/umm-dockerize.git
+   git clone git@github.com:UMukMin/Dockerize.git
    cd umm-dockerize
    ```
 
-2. Install dependencies:
+3. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Set up environment variables:
+4. Set up environment variables:
    Create a `.env` file in the root directory and add your Google Maps API key:
    ```env
    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
    ```
 
-4. Run the development server:
+5. Run the development server:
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Usage
 
