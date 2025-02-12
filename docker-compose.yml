@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   backend:
     image: backend
@@ -9,8 +7,6 @@ services:
       - "801:8000"
     volumes:
       - ./BackEnd:/usr/src/app
-    environment:
-      - PYTHONUNBUFFERED=1
 
   frontend:
     image: frontend
@@ -20,6 +16,3 @@ services:
       - "802:3000"
     volumes:
       - ./frontend:/usr/src/app
-    mem_limit: 6g
-    environment:
-      - NODE_ENV=development
