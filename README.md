@@ -16,13 +16,13 @@ This project is a web service for writing restaurant reviews, similar to Tabelog
 1. Clone the repository:
 2. SSH 공개키 인증 후 
    ```bash
-   git clone git@github.com:UMukMin/Dockerize.git
+   git clone git@github.com:UMukMin/Dockerize.git umm-docerzie
    cd umm-dockerize
    ```
 
 3. Install dependencies:
    ```bash
-   npm install
+   pnpm install
    ```
 
 4. Set up environment variables:
@@ -33,7 +33,7 @@ This project is a web service for writing restaurant reviews, similar to Tabelog
 
 5. Run the development server:
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
