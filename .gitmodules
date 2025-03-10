@@ -1,6 +1,3 @@
-[submodule "FrontEnd"]
-	path = FrontEnd
-	url = git@github.com:UMukMin/FrontEnd.git
 [submodule "BackEnd"]
 	path = BackEnd
 	url = git@github.com:UMukMin/BackEnd.git
