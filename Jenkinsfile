@@ -18,11 +18,6 @@ pipeline {
                             [$class: 'CloneOption', depth: 1, noTags: false, shallow: false],
                         ]
                     ])
-                    sh '''
-                    echo "Forcing submodules to update..."
-                    git submodule deinit -f
-                    git submodule update --init --recursive
-                    '''
                 }
             }
         }
