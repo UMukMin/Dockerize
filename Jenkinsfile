@@ -14,11 +14,15 @@ pipeline {
                             credentialsId: 'github-ssh'
                         ]],
                         extensions: [
-                            [$class: 'SubmoduleOption',
-                            recursiveSubmodules: true,
-                            ]
+                            [$class: 'SubmoduleOption', recursiveSubmodules: true, parentCredentials: true],
+                            [$class: 'CloneOption', depth: 1, noTags: false, shallow: false],
                         ]
                     ])
+                    sh '''
+                    echo "Forcing submodules to update..."
+                    git submodule deinit -f
+                    git submodule update --init --recursive
+                    '''
                 }
             }
         }
@@ -28,6 +32,7 @@ pipeline {
                 sh '''
                 echo "Navigating to BackEnd directory..."
                 cd $WORKSPACE
+                echo "Listing files in current directory..."
                 echo "Building images..."
                 docker-compose build
                 '''
