@@ -2,7 +2,9 @@ services:
   backend:
     image: backend
     container_name: backend
-    build: ./BackEnd
+    build: 
+      context: ./BackEnd
+      dockerfile: Dockerfile
     ports:
       - "801:8000"
     volumes:
@@ -13,7 +15,9 @@ services:
   frontend:
     image: frontend
     container_name: frontend
-    build: ./frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "802:3000"
     volumes:
