@@ -15,9 +15,13 @@ pipeline {
                         ]],
                         extensions: [
                             [$class: 'SubmoduleOption', recursiveSubmodules: true, parentCredentials: true],
-                            [$class: 'CloneOption', depth: 1, noTags: false, shallow: false],
                         ]
                     ])
+                    sh '''
+                    echo "Initializing submodules..."
+                    git submodule init 
+                    git submodule update --init --recursive
+                    '''
                 }
             }
         }
@@ -25,10 +29,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                echo "Navigating to BackEnd directory..."
                 cd $WORKSPACE
-                echo "Listing files in current directory..."
-                echo "Building images..."
                 docker-compose build
                 '''
             }
@@ -37,13 +38,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                echo "Stopping old container..."
-                cd $WORKSPACE
-                docker-compose down
-
-                echo "Starting new container..."
-                docker-compose up -d
-
+                echo "Restarting containers..."
+                docker-compose down && docker-compose up -d
                 '''
             }
         }
